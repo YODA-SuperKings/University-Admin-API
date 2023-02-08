@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QFlQmUzFNUynbg7wLFAquZvbVxijGOIbqm+n9U7pUI8tOkPo+SFv7Hak0he7hk0zmSI1SxmGPKIC/DS7rmu9Bg==",
+  "dgSpecHash": "EDovVSYAKOu47Y33+LU3YkSZ+rbq5HgYM3X+UlVfzKc9ceiN86lhAQpB6ELqWr8NuePJZ7KwHEkeCqhuhn/GuQ==",
   "success": true,
-  "projectFilePath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\University_Admin_API\\University_Admin_API.csproj",
+  "projectFilePath": "C:\\src\\University-Admin-API\\University_Admin_API\\University_Admin_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\muthukumar.b\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\muthukumar.b\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

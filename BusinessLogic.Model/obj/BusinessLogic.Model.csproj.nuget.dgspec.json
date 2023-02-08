@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {}
+    "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {}
   },
   "projects": {
-    "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {
+    "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj",
+        "projectUniqueName": "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj",
         "projectName": "BusinessLogic.Model",
-        "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj",
+        "projectPath": "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj",
         "packagesPath": "C:\\Users\\muthukumar.b\\.nuget\\packages\\",
-        "outputPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\obj\\",
+        "outputPath": "C:\\src\\University-Admin-API\\BusinessLogic.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\muthukumar.b\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.19.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -238,6 +238,11 @@
       "BusinessLogic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BusinessLogic.Interface": "1.0.0",
+          "BusinessLogic.Model": "1.0.0",
+          "MongoDB.Driver": "2.19.0"
+        },
         "compile": {
           "bin/placeholder/BusinessLogic.dll": {}
         },
@@ -248,6 +253,9 @@
       "BusinessLogic.Interface/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BusinessLogic.Model": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/BusinessLogic.Interface.dll": {}
         },
@@ -258,6 +266,9 @@
       "BusinessLogic.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "MongoDB.Driver": "2.19.0"
+        },
         "compile": {
           "bin/placeholder/BusinessLogic.Model.dll": {}
         },
@@ -744,10 +755,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "BusinessLogic >= 1.0.0",
-      "BusinessLogic.Interface >= 1.0.0",
-      "BusinessLogic.Model >= 1.0.0",
-      "MongoDB.Driver >= 2.19.0"
+      "BusinessLogic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -756,11 +764,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\University_Admin_API\\University_Admin_API.csproj",
+      "projectUniqueName": "C:\\src\\University-Admin-API\\University_Admin_API\\University_Admin_API.csproj",
       "projectName": "University_Admin_API",
-      "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\University_Admin_API\\University_Admin_API.csproj",
+      "projectPath": "C:\\src\\University-Admin-API\\University_Admin_API\\University_Admin_API.csproj",
       "packagesPath": "C:\\Users\\muthukumar.b\\.nuget\\packages\\",
-      "outputPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\University_Admin_API\\obj\\",
+      "outputPath": "C:\\src\\University-Admin-API\\University_Admin_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\muthukumar.b\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -777,14 +785,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj": {
-              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj"
-            },
-            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {
-              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj"
-            },
-            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\src\\University-Admin-API\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\src\\University-Admin-API\\BusinessLogic\\BusinessLogic.csproj"
             }
           }
         }
@@ -798,12 +800,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
-        "dependencies": {
-          "MongoDB.Driver": {
-            "target": "Package",
-            "version": "[2.19.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

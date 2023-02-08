@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic.Interface\BusinessLogic.Interface.csproj" />
+    <ProjectReference Include="..\BusinessLogic.Model\BusinessLogic.Model.csproj" />
+  </ItemGroup>
+
 </Project>
