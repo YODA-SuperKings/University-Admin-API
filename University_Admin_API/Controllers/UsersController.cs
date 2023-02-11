@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessLogic.Interface.Services.Users;
-using BusinessLogic.Services.Users;
-using Model = BusinessLogic.Model.Services.Users;
+using BusinessLogic.Interface.IServices;
+using BusinessLogic.Services;
+using BusinessLogic.Model.Models;
 
 namespace University_Admin_API.Controllers
 {
@@ -40,7 +40,7 @@ namespace University_Admin_API.Controllers
 
         [HttpPost]
         [Route("CreateUser")]
-        public IActionResult PostUser(Model::Users newUser)
+        public IActionResult PostUser(Users newUser)
         {
             string msg;
             msg = _userService.CreateUser(newUser);

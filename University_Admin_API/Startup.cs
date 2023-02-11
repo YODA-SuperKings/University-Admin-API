@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessLogic.Services.Users;
+using BusinessLogic.Services;
 
 namespace University_Admin_API
 {

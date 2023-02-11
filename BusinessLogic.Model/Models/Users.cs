@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace BusinessLogic.Model.Services.Users
+namespace BusinessLogic.Model.Models
 {
     public class Users 
     {
