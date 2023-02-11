@@ -25,6 +25,13 @@ namespace University_Admin_API.Controllers
             return Ok(_syllabusService.GetSyllabus());
         }
 
+        [HttpGet]
+        [Route("GetSyllabusByID")]
+        public IActionResult GetSyllabusByID(string semesterType)
+        {
+            return Ok(_syllabusService.GetSyllabusByID(semesterType));
+        }
+
         [HttpPost]
         [Route("CreateSyllabus")]
         public IActionResult PostSyllabus(Syllabus _syllabus)

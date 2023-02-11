@@ -22,6 +22,10 @@ namespace BusinessLogic.Services
             syllabus = _syllabusCollection.Find(syl => true).ToList();
             return syllabus;
         }
+        public List<Syllabus> GetSyllabusByID(string semesterType)
+        {
+            return _syllabusCollection.Find(x => x.SemesterType == semesterType).ToList();
+        }
 
         public string CreateSyllabus(Syllabus syllabus)
         {
