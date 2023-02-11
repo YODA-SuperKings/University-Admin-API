@@ -30,7 +30,7 @@ namespace BusinessLogic.Services
 
         public void Update(string code, CollegeRegistration collegeRegistration)
         {
-            _CollegeRegCollection.ReplaceOneAsync(x => x.Id == code, collegeRegistration);
+            _CollegeRegCollection.ReplaceOneAsync(x => x.Code == code, collegeRegistration);
         }
 
         public string CreateCollegeRegistration(CollegeRegistration _CollegeRegistration)
