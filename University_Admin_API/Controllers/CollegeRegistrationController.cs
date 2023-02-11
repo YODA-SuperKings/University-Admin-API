@@ -36,5 +36,22 @@ namespace University_Admin_API.Controllers
             }
             return Ok(msg);
         }
+
+        [HttpPost]
+        [Route("UpdateCollegeRegistration")]
+        public IActionResult Update(string code)
+        {
+            var collegeRegistration = _collegeRegistrationService.GetCollegeRegistration(code).FirstOrDefault();
+
+            if (collegeRegistration is null)
+            {
+                return NotFound();
+            }
+
+            collegeRegistration.IsActive = true;
+            _collegeRegistrationService.Update(code, collegeRegistration);
+
+            return Ok("Updated Successfully");
+        }
     }
 }

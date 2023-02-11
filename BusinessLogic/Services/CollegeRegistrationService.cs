@@ -22,6 +22,17 @@ namespace BusinessLogic.Services
             CollegeRegistration = _CollegeRegCollection.Find(colg => true).ToList();
             return CollegeRegistration;
         }
+
+        public List<CollegeRegistration> GetCollegeRegistration(string code)
+        {
+            return _CollegeRegCollection.Find(x => x.Code == code).ToList();
+        }
+
+        public void Update(string code, CollegeRegistration collegeRegistration)
+        {
+            _CollegeRegCollection.ReplaceOneAsync(x => x.Id == code, collegeRegistration);
+        }
+
         public string CreateCollegeRegistration(CollegeRegistration _CollegeRegistration)
         {
             string msg = "";
