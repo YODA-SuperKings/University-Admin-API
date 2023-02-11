@@ -23,21 +23,26 @@ namespace BusinessLogic.Services
             return CollegeRegistration;
         }
 
-        public List<CollegeRegistration> GetCollegeRegistration(string code)
+        public List<CollegeRegistration> GetCollegeRegistration(string id, string code)
         {
-            return _CollegeRegCollection.Find(x => x.Code == code).ToList();
+            return _CollegeRegCollection.Find(x => x.Id == id && x.Code == code).ToList();
         }
 
-        public void Update(string code, CollegeRegistration collegeRegistration)
+        public void Update(string id, string code, CollegeRegistration collegeRegistration)
         {
-            _CollegeRegCollection.ReplaceOneAsync(x => x.Code == code, collegeRegistration);
+            _CollegeRegCollection.ReplaceOneAsync(x => x.Id == id && x.Code == code, collegeRegistration);
         }
 
         public string CreateCollegeRegistration(CollegeRegistration _CollegeRegistration)
         {
             string msg = "";
+            bool IsCodeExists = _CollegeRegCollection.Find(c => c.Code == _CollegeRegistration.Code).Any();
             bool IsEmailExists = _CollegeRegCollection.Find(c => c.Email == _CollegeRegistration.Email).Any();
-            if (IsEmailExists)
+            if (IsCodeExists)
+            {
+                msg = "Code already exists.";
+            }
+            else if (IsEmailExists)
             {
                 msg = "Email already exists.";
             }

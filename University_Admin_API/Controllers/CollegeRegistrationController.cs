@@ -39,9 +39,9 @@ namespace University_Admin_API.Controllers
 
         [HttpPost]
         [Route("UpdateCollegeRegistration")]
-        public IActionResult Update(string code)
+        public IActionResult Update(string id, string code)
         {
-            var collegeRegistration = _collegeRegistrationService.GetCollegeRegistration(code).FirstOrDefault();
+            var collegeRegistration = _collegeRegistrationService.GetCollegeRegistration(id, code).FirstOrDefault();
 
             if (collegeRegistration is null)
             {
@@ -49,7 +49,7 @@ namespace University_Admin_API.Controllers
             }
 
             collegeRegistration.IsActive = true;
-            _collegeRegistrationService.Update(code, collegeRegistration);
+            _collegeRegistrationService.Update(id, code, collegeRegistration);
 
             return Ok("Updated Successfully");
         }

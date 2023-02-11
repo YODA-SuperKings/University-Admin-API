@@ -9,7 +9,7 @@ namespace BusinessLogic.Interface.IServices
     {
         List<CollegeRegistration> GetCollegeRegistration();
         string CreateCollegeRegistration(CollegeRegistration _CollegeRegistration);
-        List<CollegeRegistration> GetCollegeRegistration(string code);
-        void Update(string code, CollegeRegistration collegeRegistration);
+        List<CollegeRegistration> GetCollegeRegistration(string id, string code);
+        void Update(string id, string code, CollegeRegistration collegeRegistration);
     }
 }
