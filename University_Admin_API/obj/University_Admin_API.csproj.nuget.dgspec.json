@@ -213,6 +213,12 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "C:\\src\\University-Admin-API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj": {
+                "projectPath": "C:\\src\\University-Admin-API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj"
+              },
+              "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {
+                "projectPath": "C:\\src\\University-Admin-API\\BusinessLogic.Model\\BusinessLogic.Model.csproj"
+              },
               "C:\\src\\University-Admin-API\\BusinessLogic\\BusinessLogic.csproj": {
                 "projectPath": "C:\\src\\University-Admin-API\\BusinessLogic\\BusinessLogic.csproj"
               }

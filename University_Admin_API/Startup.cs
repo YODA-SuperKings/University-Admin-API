@@ -28,6 +28,16 @@ namespace University_Admin_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<UsersService>();
+            services.AddSingleton<CollegeRegistrationService>();
+            services.AddSingleton<DepartmentService>();
+            services.AddSingleton<DocumentService>();
+            services.AddSingleton<ExaminationsService>();
+            services.AddSingleton<FeeService>();
+            services.AddSingleton<PaymentService>();
+            services.AddSingleton<ProgramsOfferedService>();
+            services.AddSingleton<StaffService>();
+            services.AddSingleton<StudentService>();
+            services.AddSingleton<SyllabusService>();
 
             //services.AddSingleton<StudentDetailService>();
 
