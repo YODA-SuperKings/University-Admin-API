@@ -16,6 +16,7 @@ namespace BusinessLogic.Model.Models
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
         public string ApplicationType { get; set; }
+        public string Semester { get; set; }
         public string CourseAppliedType { get; set; }
         public string SchoolName { get; set; }
         public string GraduatedYear { get; set; }
@@ -27,6 +28,7 @@ namespace BusinessLogic.Model.Models
         public string Country { get; set; }
         public string FatherName { get; set; }
         public string MotherName { get; set; }
+        public string Occupation { get; set; }
         public decimal Income { get; set; }
         public string FatherPhoneNumber { get; set; }
         public string CurrentAddress { get; set; }

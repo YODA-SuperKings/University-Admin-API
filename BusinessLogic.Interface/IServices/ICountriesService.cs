@@ -7,6 +7,6 @@ namespace BusinessLogic.Interface.IServices
 {
     public interface ICountriesService
     {
-        List<Country> GetCountries();
+        List<Countrry> GetCountries();
     }
 }

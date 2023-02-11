@@ -10,4 +10,10 @@ namespace BusinessLogic.Model.Models
         public string Id { get; set; }
         public string Countries { get; set; }
     }
+
+    public class Countrry
+    {
+        public string label { get; set; }
+        public string value { get; set; }
+    }
 }

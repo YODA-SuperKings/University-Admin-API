@@ -29,8 +29,11 @@ namespace University_Admin_API.Controllers
         [Route("CreateStudent")]
         public IActionResult PostStudent(Student _student)
         {
-            string msg;
-            msg = _studentService.CreateStudent(_student);
+            string msg = "";
+            if (_student != null)
+            {
+                msg = _studentService.CreateStudent(_student);
+            }
             return Ok(msg);
         }
     }

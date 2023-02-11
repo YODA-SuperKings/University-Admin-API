@@ -26,8 +26,19 @@ namespace BusinessLogic.Services
         public string CreateStudent(Student student)
         {
             string msg = "";
-            _studentCollection.InsertOne(student);
-
+            bool IsEmailExists = _studentCollection.Find(c => c.Email == student.Email).Any();
+            if (student != null)
+            {
+                if (IsEmailExists)
+                {
+                    msg = "Email already exists.";
+                }
+                else
+                {
+                    _studentCollection.InsertOne(student);
+                    msg = "Admission details saved successfully";
+                }
+            }
             return msg;
         }
     }

@@ -16,11 +16,19 @@ namespace BusinessLogic.Services
             var mongoDatabase = mongoClient.GetDatabase(Globals.DatabaseName);
             _countriesCollection = mongoDatabase.GetCollection<Country>("Countries");
         }
-        public List<Country> GetCountries()
+        public List<Countrry> GetCountries()
         {
-            List<Country> countries;
+            List<Countrry> countrries = new List<Countrry>();
+            List<Country> countries = new List<Country>();
             countries = _countriesCollection.Find(c => true).ToList();
-            return countries;
+            foreach (var item in countries)
+            {
+                Countrry country = new Countrry();
+                country.label = item.Countries;
+                country.value = item.Countries;
+                countrries.Add(country);
+            }
+            return countrries;
         }
     }
 }
