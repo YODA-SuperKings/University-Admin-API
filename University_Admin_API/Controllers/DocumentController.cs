@@ -29,8 +29,11 @@ namespace University_Admin_API.Controllers
         [Route("CreateDocument")]
         public IActionResult PostDocument(Document _document)
         {
-            string msg;
-            msg = _documentService.CreateDocument(_document);
+            string msg = "";
+            if (_document != null)
+            {
+                msg = _documentService.CreateDocument(_document);
+            }
             return Ok(msg);
         }
     }
