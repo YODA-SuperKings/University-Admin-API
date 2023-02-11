@@ -8,6 +8,7 @@ namespace BusinessLogic.Model.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+        public string Slno { get; set; }
         public string FeeType { get; set; }
         public decimal Amount { get; set; }
     }

@@ -8,6 +8,7 @@ namespace BusinessLogic.Model.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+        public string slno { get; set; }
         public string Course { get; set; }
         public string CourseName { get; set; }
         public string Type { get; set; }
