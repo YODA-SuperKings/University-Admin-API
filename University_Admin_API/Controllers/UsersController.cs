@@ -19,6 +19,19 @@ namespace University_Admin_API.Controllers
         _userService = userService;
 
         [HttpGet]
+        [Route("AuthenticateUser")]
+        public async Task<IActionResult> AuthenticateUser(string username, string password)
+        {
+            int loginType = 0;
+            var user = _userService.GetUsers();
+            if (user.Any() && (username != null || username != string.Empty) && (password != null || password != string.Empty))
+            {
+                loginType = user.Where(u => u.UserName == username && u.Password == password).Select(u => u.LoginType).FirstOrDefault();
+            }
+            return Ok(loginType);
+        }
+
+        [HttpGet]
         [Route("GetUsers")]
         public IActionResult GetUsers()
         {

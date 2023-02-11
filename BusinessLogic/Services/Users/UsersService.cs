@@ -14,7 +14,7 @@ namespace BusinessLogic.Services.Users
         {
             var mongoClient = new MongoClient(Globals.ConnectionString);
             var mongoDatabase = mongoClient.GetDatabase(Globals.DatabaseName);
-            _usersCollection = mongoDatabase.GetCollection<Model::Users>("User");
+            _usersCollection = mongoDatabase.GetCollection<Model::Users>("Users");
         }
         public List<Model::Users> GetUsers()
         {
