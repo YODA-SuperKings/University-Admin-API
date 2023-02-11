@@ -29,8 +29,11 @@ namespace University_Admin_API.Controllers
         [Route("CreateCollegeRegistration")]
         public IActionResult PostCollegeRegistration(CollegeRegistration _collegeRegistration)
         {
-            string msg;
-            msg = _collegeRegistrationService.CreateCollegeRegistration(_collegeRegistration);
+            string msg = "";
+            if (_collegeRegistration != null)
+            {
+                msg = _collegeRegistrationService.CreateCollegeRegistration(_collegeRegistration);
+            }
             return Ok(msg);
         }
     }

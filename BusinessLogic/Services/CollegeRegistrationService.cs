@@ -25,8 +25,16 @@ namespace BusinessLogic.Services
         public string CreateCollegeRegistration(CollegeRegistration _CollegeRegistration)
         {
             string msg = "";
-            _CollegeRegCollection.InsertOne(_CollegeRegistration);
-
+            bool IsEmailExists = _CollegeRegCollection.Find(c => c.Email == _CollegeRegistration.Email).Any();
+            if (IsEmailExists)
+            {
+                msg = "Email already exists.";
+            }
+            else
+            {
+                _CollegeRegCollection.InsertOne(_CollegeRegistration);
+                msg = "Registration saved successfully";
+            }
             return msg;
         }
     }
