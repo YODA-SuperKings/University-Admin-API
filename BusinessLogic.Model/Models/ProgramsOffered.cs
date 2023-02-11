@@ -11,7 +11,8 @@ namespace BusinessLogic.Model.Models
         public string Course { get; set; }
         public string CourseName { get; set; }
         public string Type { get; set; }
-        public string FeeAmount { get; set; }
+        public decimal FeeAmount { get; set; }
         public string Year { get; set; }
+        public string Dept { get; set; }
     }
 }
