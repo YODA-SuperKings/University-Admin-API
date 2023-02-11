@@ -26,7 +26,11 @@ namespace BusinessLogic.Services
         public string CreateDocument(Document document)
         {
             string msg = "";
-            _DocumentCollection.InsertOne(document);
+            if (document != null)
+            {
+                _DocumentCollection.InsertOne(document);
+                msg = "Document saved successfully";
+            }
 
             return msg;
         }
