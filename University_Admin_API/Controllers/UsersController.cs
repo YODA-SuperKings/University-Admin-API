@@ -14,9 +14,13 @@ namespace University_Admin_API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UsersService _userService;
+        private readonly StudentService _studentService;
 
-        public UsersController(UsersService userService) =>
-        _userService = userService;
+        public UsersController(UsersService userService, StudentService studentService)
+        {
+            _userService = userService;
+            _studentService = studentService;
+        }
 
         [HttpGet]
         [Route("AuthenticateUser")]
@@ -29,6 +33,19 @@ namespace University_Admin_API.Controllers
                 loginType = user.Where(u => u.UserName == username && u.Password == password).Select(u => u.LoginType).FirstOrDefault();
             }
             return Ok(loginType);
+        }
+
+        [HttpGet]
+        [Route("GetPaymentByID")]
+        public IActionResult GetPaymentByID(string registrationNo)
+        {
+            Student _student = new Student();
+            var studentInfo = _studentService.GetStudent();
+            if (studentInfo.Any() && (registrationNo != null || registrationNo != string.Empty))
+            {
+                _student = studentInfo.Where(u => u.RegistrationNo == registrationNo).FirstOrDefault();
+            }
+            return Ok(_student);
         }
 
         [HttpGet]
