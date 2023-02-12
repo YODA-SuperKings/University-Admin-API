@@ -68,7 +68,7 @@ namespace University_Admin_API.Controllers
                 return NotFound();
             }
 
-
+            _userService.CreateUser(users);
 
             return Ok("Updated Successfully");
         }
