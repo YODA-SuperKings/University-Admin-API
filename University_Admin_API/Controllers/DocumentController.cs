@@ -13,18 +13,61 @@ namespace University_Admin_API.Controllers
     [ApiController]
     public class DocumentController : ControllerBase
     {
-         private readonly DocumentService _documentService;
+        private readonly DocumentService _documentService;
+        private readonly StudentService _studentService;
 
-        public DocumentController(DocumentService documentService) =>
-        _documentService = documentService;
+        public DocumentController(DocumentService documentService, StudentService studentService)
+        {
+            _documentService = documentService;
+            _studentService = studentService;
+        }
 
         [HttpGet]
         [Route("GetDocument")]
         public IActionResult GetDocument()
         {
-            return Ok(_documentService.GetDocument());
+            var student = _studentService.GetStudent().ToList();
+            var studentDoc = _documentService.GetDocument().ToList();
+
+            var _studentDocument = from s in student 
+                                   join doc in studentDoc 
+                                    on s.RegistrationNo equals doc.RegistrationNo 
+                            select new
+                            { 
+                                RegistrationNo = s.RegistrationNo,
+                                candidateName = s.FirstName +" "+ s.LastName,
+                                Course = s.CourseAppliedType,
+                                GraduatedYear =s.GraduatedYear,
+                                DocumentType = doc.DocumentType,
+                                FilePath = doc.FilePath
+                            };
+        
+            return Ok(_studentDocument);
         }
 
+        [HttpGet]
+        [Route("GetDocumentByID")]
+        public IActionResult GetDocumentByID(string registrationNo)
+        {
+            var student = _studentService.GetStudent().Where(s=> s.RegistrationNo == registrationNo).ToList();
+            var studentDoc = _documentService.GetDocument().Where(doc=>doc.RegistrationNo == registrationNo).ToList();
+
+            var _studentDocument = from s in student 
+                                   join doc in studentDoc 
+                                    on s.RegistrationNo equals doc.RegistrationNo 
+                                   select new
+                                   { 
+                                       RegistrationNo = s.RegistrationNo,
+                                       candidateName = s.FirstName + " " + s.LastName,
+                                       Course = s.CourseAppliedType,
+                                       GraduatedYear = s.GraduatedYear,
+                                       DocumentType = doc.DocumentType,
+                                       FilePath = doc.FilePath
+                                   };
+
+            return Ok(_studentDocument);
+
+        }
         [HttpPost]
         [Route("CreateDocument")]
         public IActionResult PostDocument(Document _document)
