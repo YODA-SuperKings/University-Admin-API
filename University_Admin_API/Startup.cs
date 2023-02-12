@@ -39,6 +39,7 @@ namespace University_Admin_API
             services.AddSingleton<StudentService>();
             services.AddSingleton<SyllabusService>();
             services.AddSingleton<CountriesService>();
+            services.AddSingleton<AffiliatedCollegesService>();
 
             //services.AddSingleton<StudentDetailService>();
 
