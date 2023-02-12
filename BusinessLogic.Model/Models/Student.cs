@@ -15,6 +15,7 @@ namespace BusinessLogic.Model.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
+        public string CollegeName { get; set; }
         public string ApplicationType { get; set; }
         public string Semester { get; set; }
         public string CourseAppliedType { get; set; }
