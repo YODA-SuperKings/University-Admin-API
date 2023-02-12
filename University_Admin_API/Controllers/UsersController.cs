@@ -36,8 +36,8 @@ namespace University_Admin_API.Controllers
         }
 
         [HttpGet]
-        [Route("GetPaymentByID")]
-        public IActionResult GetPaymentByID(string registrationNo)
+        [Route("GetStudentByUserID")]
+        public IActionResult GetStudentByUserID(string registrationNo)
         {
             Student _student = new Student();
             var studentInfo = _studentService.GetStudent();
