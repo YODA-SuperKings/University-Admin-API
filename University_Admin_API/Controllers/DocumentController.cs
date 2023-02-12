@@ -39,7 +39,8 @@ namespace University_Admin_API.Controllers
                                 Course = s.CourseAppliedType,
                                 GraduatedYear =s.GraduatedYear,
                                 DocumentType = doc.DocumentType,
-                                FilePath = doc.FilePath
+                                FilePath = doc.FilePath,
+                                Status = doc.Status
                             };
         
             return Ok(_studentDocument);
