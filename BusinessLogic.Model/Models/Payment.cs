@@ -13,5 +13,6 @@ namespace BusinessLogic.Model.Models
         public string FeeDescription { get; set; }
         public decimal Amount { get; set; }
         public string AcademicYear { get; set; }
+        public string FeeID { get; set; }
     }
 }
