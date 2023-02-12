@@ -26,8 +26,12 @@ namespace BusinessLogic.Services
         public string CreatePayment(Payment payment)
         {
             string msg = "";
-            _paymentCollection.InsertOne(payment);
-
+            if (payment != null)
+            {
+                payment.currentDate = DateTime.Now.ToString();
+                _paymentCollection.InsertOne(payment);
+                msg = "Fee Payment Successfull";
+            }
             return msg;
         }
     }
