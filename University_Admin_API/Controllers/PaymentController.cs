@@ -25,6 +25,19 @@ namespace University_Admin_API.Controllers
             return Ok(_paymentService.GetPayment());
         }
 
+        [HttpGet]
+        [Route("GetPaymentByID")]
+        public IActionResult GetPaymentByID(string registrationNo)
+        {
+            List<Payment> _payment = new List<Payment>();
+            var payment = _paymentService.GetPayment();
+            if (payment.Any() && (registrationNo != null || registrationNo != string.Empty))
+            {
+                _payment = payment.Where(u => u.RegistrationNo == registrationNo).ToList();
+            }
+            return Ok(_payment);
+        }
+
         [HttpPost]
         [Route("CreatePayment")]
         public IActionResult PostPayment(Payment _payment)

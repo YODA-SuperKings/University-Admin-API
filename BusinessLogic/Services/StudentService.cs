@@ -35,6 +35,12 @@ namespace BusinessLogic.Services
                 }
                 else
                 {
+                    var item = _studentCollection.Find(d => true).Limit(1);
+                    if(item != null)
+                    {
+                        int _registrationNo = Convert.ToInt32(item.FirstOrDefault().RegistrationNo) + 1;
+                        student.RegistrationNo = _registrationNo.ToString();
+                    }
                     _studentCollection.InsertOne(student);
                     msg = "Admission details saved successfully";
                 }
