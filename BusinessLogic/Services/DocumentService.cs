@@ -34,5 +34,10 @@ namespace BusinessLogic.Services
 
             return msg;
         }
+
+        public void Update(string id, string regCode, Document document)
+        {
+            _DocumentCollection.ReplaceOneAsync(x => x.Id == id && x.RegistrationNo == regCode, document);
+        }
     }
 }

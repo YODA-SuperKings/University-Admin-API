@@ -9,5 +9,6 @@ namespace BusinessLogic.Interface.IServices
     {
         List<Document> GetDocument();
         string CreateDocument(Document _Document);
+        void Update(string id, string regCode, Document document);
     }
 }

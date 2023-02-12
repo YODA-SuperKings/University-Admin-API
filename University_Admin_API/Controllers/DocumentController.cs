@@ -75,9 +75,28 @@ namespace University_Admin_API.Controllers
             string msg = "";
             if (_document != null)
             {
+                _document.Status = "Not Verified";
                 msg = _documentService.CreateDocument(_document);
             }
             return Ok(msg);
+        }
+
+        [HttpPost]
+        [Route("UpdateDocument")]
+        public IActionResult Update(string registrationCode)
+        {
+            var document = _documentService.GetDocument().Where(s => s.RegistrationNo == registrationCode).FirstOrDefault();
+
+            if (document is null)
+            {
+                return NotFound();
+            }
+
+            document.Status = "Verified";
+
+            _documentService.Update(document.Id, registrationCode, document);
+
+            return Ok("Updated Successfully");
         }
     }
 }
