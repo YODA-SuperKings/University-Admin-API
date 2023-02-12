@@ -9,5 +9,6 @@ namespace BusinessLogic.Interface.IServices
     {
         List<Student> GetStudent();
         string CreateStudent(Student _Student);
+        void Update(string id, string regCode, Student student);
     }
 }

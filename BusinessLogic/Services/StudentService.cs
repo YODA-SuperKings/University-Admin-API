@@ -23,6 +23,11 @@ namespace BusinessLogic.Services
             return student;
         }
 
+        public void Update(string id, string regCode, Student student)
+        {
+            _studentCollection.ReplaceOneAsync(x => x.Id == id && x.RegistrationNo == regCode, student);
+        }
+
         public string CreateStudent(Student student)
         {
             string msg = "";

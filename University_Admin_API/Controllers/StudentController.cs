@@ -53,7 +53,8 @@ namespace University_Admin_API.Controllers
             }
 
             studentInfo.IsActive = true;
-            msg = _studentService.CreateStudent(studentInfo);
+            
+            _studentService.Update(studentInfo.Id, registrationCode, studentInfo);
 
             Users users = new Users();
             users.UserName = registrationCode;
