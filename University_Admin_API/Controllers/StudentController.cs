@@ -29,6 +29,20 @@ namespace University_Admin_API.Controllers
         }
 
         [HttpGet]
+        [Route("GetStudentByID")]
+        public IActionResult GetStudentByID(string userName)
+        {
+            var user = _userService.GetUsers().Where(s => s.UserName == userName).FirstOrDefault();
+            if(user != null)
+            {
+                var studentInfo = _studentService.GetStudent().Where(s => s.CollegeName == user.Name).ToList();
+                return Ok(studentInfo);
+            }
+           
+            return Ok("");
+        }
+
+        [HttpGet]
         [Route("GetRegistrationNumbers")]
         public IActionResult GetRegistrationNumbers()
         {

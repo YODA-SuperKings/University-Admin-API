@@ -15,11 +15,17 @@ namespace University_Admin_API.Controllers
     {
         private readonly UsersService _userService;
         private readonly StudentService _studentService;
+        private readonly ProgramsOfferedService _programsOfferedService;
+        private readonly PaymentService _paymentService;
+        private readonly FeeService _feeService;
 
-        public UsersController(UsersService userService, StudentService studentService)
+        public UsersController(UsersService userService, StudentService studentService, ProgramsOfferedService programsOfferedService, PaymentService paymentService, FeeService feeService)
         {
             _userService = userService;
             _studentService = studentService;
+            _programsOfferedService = programsOfferedService;
+            _paymentService = paymentService;
+            _feeService = feeService;
         }
 
         [HttpGet]
@@ -41,9 +47,35 @@ namespace University_Admin_API.Controllers
         {
             Student _student = new Student();
             var studentInfo = _studentService.GetStudent();
+            var fee = _feeService.GetFee().Sum(_fee => _fee.Amount);
+            var payment = _paymentService.GetPayment().Where(p => p.RegistrationNo == registrationNo).Sum(p => p.Amount);
+            bool paymentStatus = false;
+
+            if (fee <= payment)
+            {
+                paymentStatus = true;
+            }
+
             if (studentInfo.Any() && (registrationNo != null || registrationNo != string.Empty))
             {
                 _student = studentInfo.Where(u => u.RegistrationNo == registrationNo).FirstOrDefault();
+
+
+                if (_student.CourseAppliedType != null)
+                {
+                    _student.CourseAppliedType = _programsOfferedService.GetProgramsOffered().Where(p => p.slno == _student.CourseAppliedType).FirstOrDefault().CourseName;
+                }
+
+                var _studentInfo = new
+                {
+                    FirstName = _student.FirstName,
+                    LastName = _student.LastName,
+                    GraduatedYear = _student.GraduatedYear,
+                    CourseAppliedType = _student.CourseAppliedType,
+                    PaymentStatus = paymentStatus
+                };
+
+                return Ok(_studentInfo);
             }
             return Ok(_student);
         }
