@@ -76,6 +76,33 @@ namespace University_Admin_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("GetExaminationsByRegistrationID")]
+        public IActionResult GetExaminationsByRegistrationID(string registrationNo, string semesterType)
+        {
+            var syllabus = _syllabusService.GetSyllabus().Where(syl=>syl.SemesterType == semesterType).ToList();
+
+            var studentInfos = _studentService.GetStudent().Where(s => s.RegistrationNo == registrationNo).ToList();
+
+            var examinations = _examinationsService.GetExaminations().ToList();
+
+            var result = from sys in syllabus
+                          join ex in examinations on sys.CourseCode equals ex.CourseCode
+                          join s in studentInfos on sys.ProgramId equals s.CourseAppliedType
+                          orderby s.RegistrationNo
+                          select new {
+                                  RegistrationNo = s.RegistrationNo,
+                                  StudentName = s.FirstName + " " + s.LastName,
+                                  DOB = s.DateofBirth,
+                                  CourseCode = ex.CourseCode,
+                                  CourseName = sys.CourseTitle,
+                                  Mark = ex.Mark,
+                                  IsPublishedResults = ex.IsPublishedResults
+                              };
+              
+            return Ok(result);
+        }
+
         [HttpPost]
         [Route("CreateExaminations")]
         public IActionResult PostExaminations(Examinations _examinations)
