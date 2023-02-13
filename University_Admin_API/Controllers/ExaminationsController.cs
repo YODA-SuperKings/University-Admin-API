@@ -41,6 +41,7 @@ namespace University_Admin_API.Controllers
 
             var result = from sys in syllabus
                          join s in studentInfos on sys.ProgramId equals s.CourseAppliedType
+                         orderby s.RegistrationNo
                          select new {
                              RegistrationNo = s.RegistrationNo,
                              StudentName = s.FirstName +" " + s.LastName,
@@ -57,6 +58,7 @@ namespace University_Admin_API.Controllers
                 var result1 = from sys in syllabus
                              join ex in examinations on sys.CourseCode equals ex.CourseCode
                              join s in studentInfos on sys.ProgramId equals s.CourseAppliedType
+                             orderby s.RegistrationNo
                              select new
                              {
                                  RegistrationNo = s.RegistrationNo,
