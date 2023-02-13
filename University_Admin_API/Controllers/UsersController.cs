@@ -61,21 +61,25 @@ namespace University_Admin_API.Controllers
                 _student = studentInfo.Where(u => u.RegistrationNo == registrationNo).FirstOrDefault();
 
 
-                if (_student.CourseAppliedType != null)
+                if (_student?.CourseAppliedType != null)
                 {
                     _student.CourseAppliedType = _programsOfferedService.GetProgramsOffered().Where(p => p.slno == _student.CourseAppliedType).FirstOrDefault().CourseName;
                 }
 
-                var _studentInfo = new
+                if (_student != null)
                 {
-                    FirstName = _student.FirstName,
-                    LastName = _student.LastName,
-                    GraduatedYear = _student.GraduatedYear,
-                    CourseAppliedType = _student.CourseAppliedType,
-                    PaymentStatus = paymentStatus
-                };
+                    var _studentInfo = new
+                    {
+                        FirstName = _student.FirstName,
+                        LastName = _student.LastName,
+                        GraduatedYear = _student.GraduatedYear,
+                        CourseAppliedType = _student?.CourseAppliedType,
+                        PaymentStatus = paymentStatus
+                    };
 
-                return Ok(_studentInfo);
+                    return Ok(_studentInfo);
+                }
+
             }
             return Ok(_student);
         }
