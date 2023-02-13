@@ -28,6 +28,13 @@ namespace University_Admin_API.Controllers
             return Ok(_studentService.GetStudent());
         }
 
+        [HttpGet]
+        [Route("GetRegistrationNumbers")]
+        public IActionResult GetRegistrationNumbers()
+        {
+            return Ok(_studentService.GetRegistrationNumbers());
+        }
+
         [HttpPost]
         [Route("CreateStudent")]
         public IActionResult PostStudent(Student _student)

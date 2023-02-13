@@ -41,4 +41,10 @@ namespace BusinessLogic.Model.Models
         public int DeptID { get; set; }
         public bool IsActive { get; set; }
     }
+
+    public class StudentRegistrationNumber
+    {
+        public string label { get; set; }
+        public string value { get; set; }
+    }
 }

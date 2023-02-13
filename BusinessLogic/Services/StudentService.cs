@@ -23,6 +23,24 @@ namespace BusinessLogic.Services
             return student;
         }
 
+        public List<StudentRegistrationNumber> GetRegistrationNumbers()
+        {
+            List<StudentRegistrationNumber> regNo =  new List<StudentRegistrationNumber>();
+            List<Student> student;
+            student = _studentCollection.Find(student => true).ToList();
+            foreach (var item in student)
+            {
+                StudentRegistrationNumber sregNo = new StudentRegistrationNumber();
+                if (item.RegistrationNo != null)
+                {
+                    sregNo.label = item.RegistrationNo;
+                    sregNo.value = item.RegistrationNo;
+                }
+                regNo.Add(sregNo);
+            }
+            return regNo;
+        }
+
         public void Update(string id, string regCode, Student student)
         {
             _studentCollection.ReplaceOneAsync(x => x.Id == id && x.RegistrationNo == regCode, student);
