@@ -30,7 +30,7 @@ namespace BusinessLogic.Services
             {
                 payment.currentDate = DateTime.Now.ToString();
                 _paymentCollection.InsertOne(payment);
-                msg = "Fee Payment Successfull";
+                msg = "Fee payment successfull";
             }
             return msg;
         }

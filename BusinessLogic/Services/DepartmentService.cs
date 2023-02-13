@@ -25,8 +25,11 @@ namespace BusinessLogic.Services
         public string CreateDepartment(Department _Department)
         {
             string msg = "";
-            _DepartmentCollection.InsertOne(_Department);
-
+            if (_Department != null)
+            {
+                _DepartmentCollection.InsertOne(_Department);
+                msg = "Department addes sucessfully.";
+            }
             return msg;
         }
     }

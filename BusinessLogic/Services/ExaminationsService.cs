@@ -36,8 +36,11 @@ namespace BusinessLogic.Services
         public string CreateExaminations(Examinations examinations)
         {
             string msg = "";
-            _ExaminationsCollection.InsertOne(examinations);
-
+            if (examinations != null)
+            {
+                _ExaminationsCollection.InsertOne(examinations);
+                msg = "Exam marks added sucessfully.";
+            }
             return msg;
         }
     }

@@ -51,7 +51,7 @@ namespace University_Admin_API.Controllers
             collegeRegistration.IsActive = true;
             _collegeRegistrationService.Update(id, code, collegeRegistration);
 
-            return Ok("Updated Successfully");
+            return Ok("College registration updated successfully");
         }
     }
 }

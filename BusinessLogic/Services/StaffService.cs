@@ -26,8 +26,11 @@ namespace BusinessLogic.Services
         public string CreateStaff(Staff staff)
         {
             string msg = "";
-            _staffCollection.InsertOne(staff);
-
+            if (staff != null)
+            {
+                _staffCollection.InsertOne(staff);
+                msg = "Staff added sucessfully.";
+            }
             return msg;
         }
     }

@@ -31,8 +31,11 @@ namespace BusinessLogic.Services
         {
 
             string msg = "";
-            _syllabusCollection.InsertOne(syllabus);
-
+            if (syllabus != null)
+            {
+                _syllabusCollection.InsertOne(syllabus);
+                msg = "Syllabus added successfully.";
+            }
             return msg;
         }
     }

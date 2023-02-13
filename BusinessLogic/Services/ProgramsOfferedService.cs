@@ -26,8 +26,11 @@ namespace BusinessLogic.Services
         public string CreateProgramsOffered(ProgramsOffered programsOffered)
         {
             string msg = "";
-            _programsOfferedCollection.InsertOne(programsOffered);
-
+            if (programsOffered != null)
+            {
+                _programsOfferedCollection.InsertOne(programsOffered);
+                msg = "Program offered added sucessfully";
+            }
             return msg;
         }
     }

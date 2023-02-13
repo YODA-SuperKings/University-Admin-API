@@ -29,9 +29,14 @@ namespace BusinessLogic.Services
             bool isUserExists = _usersCollection.Find(usr => usr.Email == user.Email).Any() ? true : false;
             bool isNameExists = _usersCollection.Find(usr => usr.Name == user.Name).Any() ? true : false;
             if (isUserExists)
+            {
                 msg = "User email already exists.";
-
-            _usersCollection.InsertOne(user);
+            }
+            else if(user != null)
+            {
+                _usersCollection.InsertOne(user);
+                msg = "User added sucessfully.";
+            }
           
             return msg;
         }

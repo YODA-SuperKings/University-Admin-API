@@ -89,7 +89,7 @@ namespace University_Admin_API.Controllers
         {
             _examinationsService.Update();
 
-            return Ok("Updated Successfully");
+            return Ok("Exam results published");
         }
     }
 }

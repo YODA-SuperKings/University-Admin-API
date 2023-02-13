@@ -97,7 +97,7 @@ namespace University_Admin_API.Controllers
 
             _documentService.Update(document.Id, registrationCode, document);
 
-            return Ok("Updated Successfully");
+            return Ok("Document verified successfully");
         }
     }
 }

@@ -26,8 +26,11 @@ namespace BusinessLogic.Services
         public string CreateFee(Fee fee)
         {
             string msg = "";
-            _FeeServiceCollection.InsertOne(fee);
-
+            if (fee != null)
+            {
+                _FeeServiceCollection.InsertOne(fee);
+                msg = "Fee added successfully.";
+            }
             return msg;
         }
     }
