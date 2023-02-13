@@ -36,10 +36,19 @@ namespace BusinessLogic.Services
         public string CreateExaminations(Examinations examinations)
         {
             string msg = "";
+            bool IsMarkExists = false;
             if (examinations != null)
             {
-                _ExaminationsCollection.InsertOne(examinations);
-                msg = "Exam marks added sucessfully.";
+                IsMarkExists = _ExaminationsCollection.Find(e => e.RegistrationNo == examinations.RegistrationNo && e.CourseCode == examinations.CourseCode).Any();
+                if (IsMarkExists)
+                {
+                    msg = "Mark already exists.";
+                }
+                else
+                {
+                    _ExaminationsCollection.InsertOne(examinations);
+                    msg = "Exam marks added sucessfully.";
+                }
             }
             return msg;
         }
