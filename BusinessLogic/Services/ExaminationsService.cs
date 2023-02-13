@@ -22,6 +22,16 @@ namespace BusinessLogic.Services
             examinations = _ExaminationsCollection.Find(emp => true).ToList();
             return examinations;
         }
+        public void Update()
+        {
+            var examinations = _ExaminationsCollection.Find(emp => true).ToList();
+
+            foreach (var item in examinations)
+            {
+                item.IsPublishedResults = "Published";
+                _ExaminationsCollection.ReplaceOneAsync(x => x.Id == item.Id, item);
+            }
+        }
 
         public string CreateExaminations(Examinations examinations)
         {

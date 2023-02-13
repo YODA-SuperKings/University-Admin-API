@@ -11,6 +11,6 @@ namespace BusinessLogic.Model.Models
         public string RegistrationNo { get; set; }
         public string CourseCode { get; set; }
         public string Mark { get; set; }
-        public bool IsPublishedResults { get; set; }
+        public string IsPublishedResults { get; set; }
     }
 }

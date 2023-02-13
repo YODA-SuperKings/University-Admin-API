@@ -17,5 +17,6 @@ namespace BusinessLogic.Model.Models
         public string ESE { get; set; }
         public string Total { get; set; }
         public string SemesterType { get; set; }
+        public string ProgramId { get; set; }
 }
 }
